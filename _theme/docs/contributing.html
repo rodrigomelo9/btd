@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing &mdash; Build The Docs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+  
+
+  <link rel="preload" href="../../_static/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/divio.css" type="text/css" />
+
+  <link rel="apple-touch-icon" href="../../_static/favicon.png">
+  <link rel="icon" type="image/png" href="../../_static/favicon.png">
+  <!--[if IE]><link rel="shortcut icon" href="../../_static/favicon.png"><![endif]-->
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  <!--  -->
+  <!-- <script src="../../_static/js/modernizr.min.js"></script> -->
+  <!--  -->
+</head>
+
+<body class="wy-body-for-nav">
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+<div class="search-form" role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+    <button class="search-btn">
+    <span class="fa fa-search"></span>
+    </button>
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#modifying-the-theme">Modifying the theme</a><ul>
+<li><a class="reference internal" href="#set-up-your-environment">Set up your environment</a></li>
+<li><a class="reference internal" href="#making-changes">Making changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#translations">Translations</a></li>
+<li><a class="reference internal" href="#releasing-the-theme">Releasing the theme</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+
+            
+                
+                    <div class="divio-cloud">
+                        <span class="divio-cloud-caption">GET STARTED FASTER</span>
+                        <h2 class="divio-cloud-heading"><b>Divio</b> is built for django CMS</h2>
+                        <ul class="divio-cloud-features">
+                            <li>Powerful <b>FREE</b> instance</li>
+                            <li>Local development environment</li>
+                            <li><b>Preconfigured django CMS</b></li>
+                        </ul>
+                        <a class="btn-neutral divio-cloud-btn" target="_blank" href="https://goo.gl/nHv16j">Get your free account</a>
+                    </div>
+                
+            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+
+      <div class="wy-nav-content">
+    <div class="header">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <div class="header-title-wrap">
+            <a class="header-title" href="../../index.html">Build The Docs</a>
+        </div>
+        <a class="logo-link" target="_blank" href="https://divio.com"><img src="../../_static/logo-divio-black.svg" class="logo" alt="Divio"/></a>
+    </div>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a>&nbsp; &raquo;&nbsp;</li>
+        
+
+      <li>Contributing</li>
+    
+  </ul>
+</div>
+        
+        <div class="rst-content">
+        
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modifying-the-theme">
+<h2>Modifying the theme<a class="headerlink" href="#modifying-the-theme" title="Permalink to this headline">¶</a></h2>
+<p>The styles for this theme use <a class="reference external" href="http://www.sass-lang.com">SASS</a> and a custom CSS framework called <a class="reference external" href="http://www.github.com/snide/wyrm/">Wyrm</a>. We
+use <a class="reference external" href="https://webpack.js.org/">Webpack</a> and <a class="reference external" href="https://github.com/sass/node-sass">node-sass</a> to build the CSS. <a class="reference external" href="https://webpack.js.org/">Webpack</a> is used to watch for
+changes, rebuild the static assets, and rebuild the Sphinx demo documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The installation of Node is outside the scope of this documentation. You
+will need Node version 10+ in order to make changes to this theme.</p>
+</div>
+<div class="section" id="set-up-your-environment">
+<h3>Set up your environment<a class="headerlink" href="#set-up-your-environment" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Install <a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> and documentation build dependencies.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> pip install -e <span class="s1">&#39;.[dev]&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install <a class="reference external" href="https://webpack.js.org/">Webpack</a>, <a class="reference external" href="https://github.com/sass/node-sass">node-sass</a>, and theme dependencies locally.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm install
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="making-changes">
+<h3>Making changes<a class="headerlink" href="#making-changes" title="Permalink to this headline">¶</a></h3>
+<p>Changes to the theme can be compiled and tested with <a class="reference external" href="https://webpack.js.org/">Webpack</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm run dev
+</pre></div>
+</div>
+<p>This script will do the following:</p>
+<ol class="arabic simple">
+<li><p>Install and update any dependencies.</p></li>
+<li><p>Build the static CSS from SASS source files.</p></li>
+<li><p>Build the demo documentation.</p></li>
+<li><p>Watch for changes to the SASS files and documentation and rebuild everything
+on any detected changes.</p></li>
+</ol>
+<p>Alternatively, if you don’t need to watch the files, the release build script
+can be used to test built assets:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm run build
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="translations">
+<h2>Translations<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h2>
+<p>Translations are managed using <a class="reference external" href="https://www.transifex.com/readthedocs/sphinx-rtd-theme">Transifex</a>. You can join any of the existing
+language teams or request a new language is added to the project. For more
+information on our translation standards, see our docs on
+<span class="xref std std-doc">rtd:development/i18n</span></p>
+<p>Periodically, core team should update the translation files outside our normal
+releases. Someone from the core team, with write access to Transifex, should run
+the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python setup.py update_translations
+</pre></div>
+</div>
+<p>This will extract new messages, upload the messages to Transifex, and will
+update our local translation files. Changes can be checked in to a branch and
+put up for review.</p>
+</div>
+<div class="section" id="releasing-the-theme">
+<h2>Releasing the theme<a class="headerlink" href="#releasing-the-theme" title="Permalink to this headline">¶</a></h2>
+<p>To release a new version of the theme, core team will take the following steps:</p>
+<ol class="arabic">
+<li><p>Bump the version by running <code class="docutils literal notranslate"><span class="pre">bump2version</span> <span class="pre">[major|minor|patch|dev]</span></code>.
+This will automatically increase the correct part(s) of the version number,
+you do not need to specify the exact version number.
+We follow <a class="reference external" href="http://semver.org/">semver</a> and <a class="reference external" href="https://www.python.org/dev/peps/pep-0440/">PEP440</a>
+(with regards to alpha release and development versions). The version
+increment should reflect these releases and any potentially breaking changes.</p></li>
+<li><p>New versions are by default <code class="docutils literal notranslate"><span class="pre">alpha</span></code> releases. If this is a release candidate,
+run <code class="docutils literal notranslate"><span class="pre">bump2version</span> <span class="pre">--allow-dirty</span> <span class="pre">releast</span></code> to update the release to an <code class="docutils literal notranslate"><span class="pre">rc</span></code>
+release. If this is a final release, run the command again.</p></li>
+<li><p>Update the changelog (<code class="docutils literal notranslate"><span class="pre">docs/changelog.rst</span></code>) with the version information.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">update_translations</span></code> to compile new translation files
+and update Transifex.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">build</span></code> to rebuild all the theme assets and the Python
+package.</p></li>
+<li><p>Commit these changes.</p></li>
+<li><p>Tag the release in git: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">$NEW_VERSION</span></code>.</p></li>
+<li><p>Push the tag to GitHub: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--tags</span> <span class="pre">origin</span></code>.</p></li>
+<li><p>Upload the package to PyPI:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> rm -rf dist/
+<span class="gp">$</span> python setup.py sdist bdist_wheel
+<span class="gp">$</span> twine upload --sign --identity security@readthedocs.org dist/*
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          
+
+<footer>
+  
+
+  <hr/>
+
+  <div class="footer-info" role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2020, BTD contributors.
+
+    </p>
+    <p> 
+    
+        
+        <a href="../../_sources/_theme/docs/contributing.rst.txt" rel="nofollow"> View page source</a>
+        
+    
+
+    </p>
+  </div>
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+    <span>Documentation</span>
+    <span>
+      v: latest
+      <span class="fa fa-chevron-down"></span>
+  </span>
+    </span>
+    <div class="rst-other-versions"><!-- Inserted RTD Footer -->
+<div class="injected">
+
+
+  <div class="rst-versions rst-badge " data-toggle="rst-versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book">&nbsp;</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+
+
+
+
+
+      <dl>
+        <dt>Versions</dt>
+
+         <strong>
+        <dd><a href="http://docs.django-cms.org/en/latest/">latest</a></dd>
+         </strong>
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-3.5.x/">release-3.5.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-3.4.x/">release-3.4.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-3.3.x/">release-3.3.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-3.2.x/">release-3.2.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-3.1.x/">release-3.1.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-3.0.x/">release-3.0.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-2.4.x/">release-2.4.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-2.3.x/">release-2.3.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-2.2.x/">release-2.2.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/release-2.1.x/">release-2.1.x</a></dd>
+
+
+
+        <dd><a href="http://docs.django-cms.org/en/develop/">develop</a></dd>
+
+
+      </dl>
+
+
+
+
+
+      <dl>
+        <dt>Downloads</dt>
+
+        <dd><a href="//readthedocs.org/projects/django-cms/downloads/pdf/latest/">PDF</a></dd>
+
+        <dd><a href="//readthedocs.org/projects/django-cms/downloads/htmlzip/latest/">HTML</a></dd>
+
+        <dd><a href="//readthedocs.org/projects/django-cms/downloads/epub/latest/">Epub</a></dd>
+
+      </dl>
+
+
+
+
+      <dl>
+        <!-- These are kept as relative links for internal installs that are http -->
+        <dt>On Read the Docs</dt>
+        <dd>
+          <a href="//readthedocs.org/projects/django-cms/">Project Home</a>
+        </dd>
+        <dd>
+          <a href="//readthedocs.org/projects/django-cms/builds/">Builds</a>
+        </dd>
+        <dd>
+          <a href="//readthedocs.org/projects/django-cms/downloads/">Downloads</a>
+        </dd>
+      </dl>
+
+
+
+
+
+      <dl>
+        <dt>On GitHub</dt>
+        <dd>
+          <a href="https://github.com/divio/django-cms/blob/release/3.5.x/docs/index.rst">View</a>
+        </dd>
+
+      </dl>
+
+
+
+
+      <dl>
+        <dt>Search</dt>
+        <dd>
+          <div style="padding: 6px;">
+            <form id="flyout-search-form" class="wy-form" target="_blank" action="//readthedocs.org/projects/django-cms/search/" method="get">
+              <input type="text" name="q" placeholder="Search docs">
+              </form>
+          </div>
+        </dd>
+      </dl>
+
+
+
+
+      <hr>
+
+        <small>
+          <span>Hosted by <a href="https://readthedocs.org">Read the Docs</a></span>
+          <span> · </span>
+          <a href="https://docs.readthedocs.io/en/latest/privacy-policy.html">Privacy Policy</a>
+        </small>
+
+
+
+    </div>
+  </div>
+
+
+</div>
+</div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  <script type="text/javascript">
+      jQuery(function () {
+        try {
+            SphinxRtdTheme.Navigation.enableSticky();
+        } catch (e) {
+            SphinxRtdTheme.StickyNav.enable();
+        }
+    });
+
+    jQuery(function ($) {
+        var adjustAnchor = function() {
+            var $anchor = $(':target');
+            var fixedElementHeight = 80;
+
+            if ($anchor.length > 0) {
+                setTimeout(function () {
+                    $('html, body').scrollTop($anchor.offset().top - fixedElementHeight);
+                });
+            }
+        };
+
+        adjustAnchor();
+        $(window).on('hashchange load', adjustAnchor);
+    });
+  </script>
+  <script type="text/javascript">
+      $(function () {
+          $('.tabs').each(function () {
+              var tabs = $(this);
+              var links = tabs.find('.tabs__link');
+              var contents = tabs.find('.tabs__content').find('.tabs-pane');
+
+              links.on('click', function (e) {
+                  var index = links.index(this);
+
+                  links.removeClass('tabs__link--active');
+                  $(this).addClass('tabs__link--active');
+
+                  contents.hide();
+                  contents.eq(index).show();
+              });
+
+              var index = 0;
+
+              if (window.location.hash) {
+                  var maybeLink = $('.tabs__link[href="' + window.location.hash + '"]');
+
+                  if (maybeLink.length && links.index(maybeLink) !== -1) {
+                      index = links.index(maybeLink);
+                  }
+              }
+
+          links.eq(index).trigger('click');
+        });
+      });
+  </script> 
+
+</body>
+</html>
